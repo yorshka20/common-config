@@ -5,7 +5,9 @@ module.exports = {
     commonjs: true,
     es6: true,
     node: true,
+    es2020: true,
   },
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -14,7 +16,12 @@ module.exports = {
     sourceType: 'module',
     ecmaVersion: 2021,
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: [
+    'react-refresh',
+    '@typescript-eslint',
+    'prettier',
+    'prettier-plugin-glsl',
+  ],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -22,9 +29,16 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:prettier/recommended',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
     'prettier',
   ],
   rules: {
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
     '@typescript-eslint/ban-ts-comment': [
       'error',
       { 'ts-ignore': 'allow-with-description' },
